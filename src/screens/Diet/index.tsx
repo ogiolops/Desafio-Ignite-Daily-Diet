@@ -12,7 +12,8 @@ export function Diet(){
       <Header/>
       <Percent 
         Percentmeals={30}
-        type={"ABOVE"}
+        type={"PRIMARY"}
+        icon="north-east"
       /> 
       
       <Text style={{paddingTop: 20, paddingBottom: 10,}} >Refeições</Text>
@@ -26,7 +27,7 @@ export function Diet(){
       <ListOfMeals
         data='12.05.23'
       />
-      
+
       <CardMeals
         hourMeal='15:00'
         name='Banana'

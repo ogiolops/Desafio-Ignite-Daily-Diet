@@ -30,5 +30,9 @@ export default {
     LG: 18,
     XL: 24,
     XXL: 32,
+  },
+  BOX_SIZE: {
+    MD: 102,
+    LG: 200
   }
 };

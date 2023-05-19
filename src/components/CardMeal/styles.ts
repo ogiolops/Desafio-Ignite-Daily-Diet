@@ -36,7 +36,7 @@ export const Divider = styled.Text`
   margin: 0 12px;
 `
 
-export const StatusMeal = styled.Text<Props>`
+export const StatusMeal = styled.View<Props>`
   background-color: ${({ theme, type }) => type === 'PRIMARY' ?  theme.COLORS.RED_MID :  theme.COLORS.GREEN_MID };
   border-radius: 100px;
   width: 14px;

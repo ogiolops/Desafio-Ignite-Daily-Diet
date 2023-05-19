@@ -5,6 +5,7 @@ import { Diet } from './src/screens/Diet';
 import { Loading } from './src/components/Loading';
 import { ThemeProvider } from 'styled-components';
 import theme from './src/theme';
+import { Statistics } from './src/screens/Statistics';
 
 export default function App() {
 
@@ -19,7 +20,7 @@ export default function App() {
         translucent
       />
 
-      { fontsLoaded ? <Diet/> :  <Loading/> } 
+      { fontsLoaded ? <Statistics/> :  <Loading/> } 
     </ThemeProvider>
   );
 }
