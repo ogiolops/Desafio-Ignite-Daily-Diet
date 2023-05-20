@@ -33,6 +33,6 @@ export default {
   },
   BOX_SIZE: {
     MD: 102,
-    LG: 200
+    LG: 160
   }
 };
