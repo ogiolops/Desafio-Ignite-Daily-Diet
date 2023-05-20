@@ -1,4 +1,4 @@
-import { ArrowArcLeft, ArrowLeft } from "phosphor-react-native";
+import { ArrowLeft } from "phosphor-react-native";
 import styled from "styled-components/native";
 
 export const Container = styled.View`
@@ -6,7 +6,7 @@ export const Container = styled.View`
   width: 100%;
   justify-content: center;
   align-items: center;
-  background-color: ${({ theme: theme }) => theme.COLORS.GRAY_5};
+  background-color: ${({ theme }) => theme.COLORS.GRAY_5};
 `
 
 export const TitleToBack = styled.Text`

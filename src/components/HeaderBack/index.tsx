@@ -1,12 +1,17 @@
+import { TouchableOpacityProps } from "react-native";
 import { BackButton, BackIcon, Container, TitleToBack } from "./styles";
 
-export function HeaderBack(){
+type Props = TouchableOpacityProps & {
+  name: string;
+}
+
+export function HeaderBack({ name, ...Props }: Props){
   return(
      <Container>
       <BackButton>
         <BackIcon />
       </BackButton>
-      <TitleToBack>Nova refeição</TitleToBack>
+      <TitleToBack>{name}</TitleToBack>
      </Container>
   )
 }

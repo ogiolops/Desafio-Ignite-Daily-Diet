@@ -6,7 +6,7 @@ import { Text } from "react-native";
 import { ListOfMeals } from "../../components/ListOfMeals";
 import { CardMeals } from "../../components/CardMeal";
 
-export function Diet(){
+export function Home(){
   return(
     <Container>
       <Header/>
@@ -14,6 +14,7 @@ export function Diet(){
         Percentmeals={30}
         type={"PRIMARY"}
         icon="north-east"
+        SizeBox='LARGE'
       /> 
       
       <Text style={{paddingTop: 20, paddingBottom: 10,}} >Refeições</Text>

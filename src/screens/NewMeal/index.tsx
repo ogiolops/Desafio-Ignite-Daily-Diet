@@ -6,7 +6,9 @@ import { Container, FormContainer } from "./styles";
 export function NewMeal(){
   return(
     <Container>
-        <HeaderBack />
+        <HeaderBack 
+          name='Refeição'
+        />
         <FormContainer>
           <Form/>
 

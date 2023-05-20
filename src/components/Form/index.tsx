@@ -6,14 +6,10 @@ export function Form({ isActive = false }){
   return(
     <Container>
         <Text>Nome</Text>
-        <Input
-          
-        />
+        <Input/>
 
         <Text>Descrição</Text>
-        <InputDescription
-            
-        />
+        <InputDescription/>
 
         <Text>Está dentro da dieta?</Text>
 
@@ -29,8 +25,6 @@ export function Form({ isActive = false }){
           
         </ButtonsOption>
 
-
-        
     </Container>
   )
 }
