@@ -3,3 +3,55 @@ import styled from "styled-components/native";
 export const Container = styled.View`
   flex: 1;
 `
+
+export const ContentContainer = styled.View`
+  flex: 1;
+  padding: 30px 24px;
+`
+
+export const Title = styled.Text`
+  font-size: ${({ theme }) => theme.FONT_SIZE.XL}px;
+  color: ${({ theme }) => theme.COLORS.GRAY_1};
+  font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
+  margin-bottom: 8px;
+`
+
+export const Description = styled.Text`
+  font-size: ${({ theme }) => theme.FONT_SIZE.MD}px;
+  color: ${({ theme }) => theme.COLORS.GRAY_2};
+  margin-bottom: 24px;
+`
+export const SubTitle = styled.Text`
+  font-size: ${({ theme }) => theme.FONT_SIZE.SM}px;
+  color: ${({ theme }) => theme.COLORS.GRAY_1};
+  font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
+`
+
+export const DataContainer = styled.View`
+  flex-direction: row;
+  gap:6px;
+  margin-bottom: 24px;
+`
+
+export const Status = styled.View`
+  background-color: ${({ theme }) => theme.COLORS.GRAY_7};
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+  flex-direction: row;
+  width: 144px;
+  padding: 8px 16px;
+  gap: 8px;
+`
+
+export const Circle = styled.View`
+  border-radius: 1000px;
+  width: 8px;
+  height: 8px;
+  background-color: ${({ theme }) => theme.COLORS.GREEN_DARK};
+`
+
+export const StatusText = styled.Text`
+  font-size: ${({ theme }) => theme.FONT_SIZE.SM}px;
+  color: ${({ theme }) => theme.COLORS.GRAY_2};
+`
