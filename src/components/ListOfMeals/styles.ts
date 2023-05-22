@@ -1,4 +1,4 @@
-import styled from "styled-components/native";
+import styled, { css } from "styled-components/native";
 import { TouchableOpacity } from "react-native";
 
 export const Container = styled.View`
@@ -6,11 +6,13 @@ export const Container = styled.View`
 `
 
 export const HeaderMeals = styled.Text`
+  ${({theme }) => css`
+    font-family: ${theme.FONT_FAMILY.BOLD};
+    font-size: ${theme.FONT_SIZE.MD}px;
+    color: ${theme.COLORS.GRAY_1};
+  `}
   width: 100%;
   padding-top: 22px;
-  font-family: ${({theme }) => theme.FONT_FAMILY.BOLD};
-  font-size: ${({theme }) => theme.FONT_SIZE.MD}px;
-  color: ${({theme }) => theme.COLORS.GRAY_1};
 `
 
 

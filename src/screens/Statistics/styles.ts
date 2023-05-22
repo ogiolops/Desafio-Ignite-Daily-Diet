@@ -1,4 +1,4 @@
-import styled from "styled-components/native";
+import styled, { css } from "styled-components/native";
 
 
 export const Container = styled.View`
@@ -10,7 +10,6 @@ export const Container = styled.View`
 export const HeaderStatistics = styled.View`
   width: 100%;
 `
-
 
 export const StatisticsContent = styled.View`
   padding: 0 24px;
@@ -42,16 +41,20 @@ export const BoxInfos = styled.View`
 `
 
 export const NumberStatistics = styled.Text`
-  color: ${({theme}) => theme.COLORS.GRAY_1};
-  font-size: ${({theme}) => theme.FONT_SIZE.XL}px;
-  font-family:  ${({theme}) => theme.FONT_FAMILY.BOLD};
+  ${({theme}) => css`
+    color: ${theme.COLORS.GRAY_1};
+    font-size: ${theme.FONT_SIZE.XL}px;
+    font-family:  ${theme.FONT_FAMILY.BOLD};
+  `}
   margin-bottom: 8px;
 `
 
 export const TextStatistics = styled.Text`
-  color: ${({theme}) => theme.COLORS.GRAY_2};
-  font-size: ${({theme}) => theme.FONT_SIZE.SM}px;
-  font-family: ${({theme}) => theme.FONT_FAMILY.REGULAR};
+  ${({theme}) => css`
+    color: ${theme.COLORS.GRAY_2};
+    font-size: ${theme.FONT_SIZE.SM}px;
+    font-family: ${theme.FONT_FAMILY.REGULAR};
+  `}
   text-align: center;
 `
 

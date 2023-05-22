@@ -1,4 +1,4 @@
-import styled from "styled-components/native";
+import styled, { css } from "styled-components/native";
 import { TouchableOpacity } from "react-native";
 
 export type CircleTypeStyleProps = 'PRIMARY' | 'SECONDARY';
@@ -20,19 +20,25 @@ export const Container = styled(TouchableOpacity)`
 `
 
 export const HourMeal = styled.Text`
-  font-family: ${({theme }) => theme.FONT_FAMILY.BOLD};
-  font-size: ${({theme }) => theme.FONT_SIZE.SM}px;
+  ${({theme }) => css`
+    font-family: ${theme.FONT_FAMILY.BOLD};
+    font-size: ${theme.FONT_SIZE.SM}px;  
+  `}
   margin-left: 12px;
 `
 export const NameMeal = styled.Text`
-  font-family: ${({theme }) => theme.FONT_FAMILY.REGULAR};
-  font-size: ${({theme }) => theme.FONT_SIZE.MD}px;
+  ${({ theme }) => css`
+    font-family: ${theme.FONT_FAMILY.REGULAR};
+    font-size: ${theme.FONT_SIZE.MD}px;
+  `} 
   flex: 1;
 `
 
-export const Divider = styled.Text`
-  border: 1px solid ${({theme }) => theme.COLORS.GRAY_5};
-  background-color: ${({theme }) => theme.COLORS.GRAY_5};
+export const Divider = styled.Text` 
+  ${({theme }) => css`
+    border: 1px solid ${theme.COLORS.GRAY_5};
+    background-color: ${theme.COLORS.GRAY_5};
+  `}
   margin: 0 12px;
 `
 

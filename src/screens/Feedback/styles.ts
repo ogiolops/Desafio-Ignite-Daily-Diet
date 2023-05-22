@@ -1,4 +1,4 @@
-import styled from "styled-components/native";
+import styled, { css } from "styled-components/native";
 
 export type FeedbacksColor = 'POSITIVE' | 'NEGATIVE';
 
@@ -13,16 +13,20 @@ export const Container = styled.View`
 `
 
 export const Title = styled.Text<Props>`
-  color: ${({ theme, type }) => type === 'POSITIVE' ? theme.COLORS.GREEN_DARK : theme.COLORS.RED_DARK };
-  font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
-  font-size: ${({ theme }) => theme.FONT_SIZE.XL}px;
+  ${({ theme, type }) => css`
+    color: ${ type === 'POSITIVE' ? theme.COLORS.GREEN_DARK : theme.COLORS.RED_DARK };
+    font-family: ${ theme.FONT_FAMILY.BOLD};
+    font-size: ${ theme.FONT_SIZE.XL}px;
+  `}
   margin-bottom: 8px;
 `
 
 export const Text = styled.Text`
-  color: ${({ theme }) => theme.COLORS.GRAY_1};
-  font-family: ${({ theme }) => theme.FONT_FAMILY.REGULAR};
-  font-size: ${({ theme }) => theme.FONT_SIZE.MD}px;
+  ${({ theme }) => css`
+    color: ${ theme.COLORS.GRAY_1};
+    font-family: ${ theme.FONT_FAMILY.REGULAR};
+    font-size: ${ theme.FONT_SIZE.MD}px;
+  `}
   margin-bottom: 40px;
 `
 

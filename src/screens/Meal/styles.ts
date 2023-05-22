@@ -1,4 +1,4 @@
-import styled from "styled-components/native";
+import styled, { css } from "styled-components/native";
 
 export const Container = styled.View`
   flex: 1;
@@ -13,21 +13,28 @@ export const ContentContainer = styled.View`
 `
 
 export const Title = styled.Text`
-  font-size: ${({ theme }) => theme.FONT_SIZE.XL}px;
-  color: ${({ theme }) => theme.COLORS.GRAY_1};
-  font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
+  ${({ theme }) => css`
+    font-size: ${theme.FONT_SIZE.XL}px;
+    color: ${theme.COLORS.GRAY_1};
+    font-family: ${theme.FONT_FAMILY.BOLD};
+  `}
   margin-bottom: 8px;
 `
 
 export const Description = styled.Text`
-  font-size: ${({ theme }) => theme.FONT_SIZE.MD}px;
-  color: ${({ theme }) => theme.COLORS.GRAY_2};
+  ${({ theme }) => css`
+    font-size: ${theme.FONT_SIZE.MD}px;
+    color: ${theme.COLORS.GRAY_2};
+  `}
+
   margin-bottom: 24px;
 `
 export const SubTitle = styled.Text`
-  font-size: ${({ theme }) => theme.FONT_SIZE.SM}px;
-  color: ${({ theme }) => theme.COLORS.GRAY_1};
-  font-family: ${({ theme }) => theme.FONT_FAMILY.BOLD};
+  ${({ theme }) => css`
+    font-size: ${theme.FONT_SIZE.SM}px;
+    color: ${theme.COLORS.GRAY_1};
+    font-family: ${theme.FONT_FAMILY.BOLD};
+  `}
 `
 
 export const DataContainer = styled.View`

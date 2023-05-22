@@ -1,5 +1,5 @@
 import { ArrowLeft } from "phosphor-react-native";
-import styled from "styled-components/native";
+import styled, { css } from "styled-components/native";
 
 export const Container = styled.View`
   height: 100px;
@@ -10,9 +10,11 @@ export const Container = styled.View`
 `
 
 export const TitleToBack = styled.Text`
-  color: ${({ theme: theme }) => theme.COLORS.GRAY_1};
-  font-family: ${({ theme: theme }) => theme.FONT_FAMILY.BOLD};
-  font-size: ${({ theme: theme }) => theme.FONT_SIZE.LG}px;
+  ${({ theme: theme }) => css`
+    color: ${theme.COLORS.GRAY_1};
+    font-family: ${theme.FONT_FAMILY.BOLD};
+    font-size: ${theme.FONT_SIZE.LG}px;
+  `}
 `
 
 export const BackButton = styled.TouchableOpacity`
