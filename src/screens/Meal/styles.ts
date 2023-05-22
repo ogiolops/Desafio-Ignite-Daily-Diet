@@ -7,6 +7,9 @@ export const Container = styled.View`
 export const ContentContainer = styled.View`
   flex: 1;
   padding: 30px 24px;
+  border-radius: 20px;
+  margin-top: -20px;
+  background-color: ${({ theme }) => theme.COLORS.WHITE};
 `
 
 export const Title = styled.Text`
@@ -54,4 +57,11 @@ export const Circle = styled.View`
 export const StatusText = styled.Text`
   font-size: ${({ theme }) => theme.FONT_SIZE.SM}px;
   color: ${({ theme }) => theme.COLORS.GRAY_2};
+`
+
+export const ButtonContainer = styled.View`
+  margin: 0  24px;
+  flex-direction: column;
+  gap: 9px;
+  margin-bottom: 20px;
 `

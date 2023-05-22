@@ -9,6 +9,7 @@ import { Loading } from './src/components/Loading';
 import { Statistics } from './src/screens/Statistics';
 import { NewMeal } from './src/screens/NewMeal';
 import { Feedback } from './src/screens/Feedback';
+import { EditMeal } from './src/screens/EditMeal';
 
 export default function App() {
 
@@ -23,7 +24,7 @@ export default function App() {
         translucent
       />
 
-      { fontsLoaded ?  <Meal/> :  <Loading/> } 
+      { fontsLoaded ?  <EditMeal/> :  <Loading/> } 
     </ThemeProvider>
   );
 }
