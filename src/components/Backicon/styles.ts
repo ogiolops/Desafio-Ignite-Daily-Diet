@@ -18,7 +18,7 @@ export const Container = styled(TouchableOpacity)`
   margin-left: 12px;
 
   position: absolute;
-  margin-top: 56px;
+  margin-top: 20px;
 `
 
 

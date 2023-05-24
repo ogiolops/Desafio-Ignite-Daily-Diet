@@ -10,7 +10,7 @@ export function Statistics(){
       <HeaderStatistics>
         <Percent
             type={"PRIMARY"}
-            Percentmeals={30}
+            Percentmeals={'30,00'}
             SizeBox="LARGE"
         />
 

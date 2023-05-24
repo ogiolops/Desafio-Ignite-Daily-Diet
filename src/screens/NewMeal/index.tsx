@@ -1,20 +1,29 @@
+import { useNavigation } from "@react-navigation/native";
 import { Button } from "../../components/Button";
 import { Form } from "../../components/Form";
 import { HeaderBack } from "../../components/HeaderBack";
 import { Container, FormContainer } from "./styles";
 
 export function NewMeal(){
+
+  const navigation = useNavigation();
+
+  function handleFeedback() {
+    navigation.navigate('feedback')
+  }
+
   return(
     <Container>
         <HeaderBack 
-          name='Refeição'
+          name='Nova refeição'
         />
         <FormContainer>
           <Form/>
 
           <Button
             type='PRIMARY'
-            buttonName='Salvar alteraçoes'
+            buttonName='Cadastrar '
+            onPress={ handleFeedback}
           />
         </FormContainer>
 

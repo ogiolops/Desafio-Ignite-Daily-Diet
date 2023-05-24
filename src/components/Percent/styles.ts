@@ -13,11 +13,12 @@ type Props = {
 
 export const Container = styled(TouchableOpacity)<Props>`
   width: 100%;
-  height: ${({ theme, SizeBox }) => SizeBox === 'MEDIUM' ? theme.BOX_SIZE.MD  : theme.BOX_SIZE.LG}px; 
+  /* height: ${({ theme, SizeBox }) => SizeBox === 'MEDIUM' ? theme.BOX_SIZE.MD  : theme.BOX_SIZE.LG}px;  */
 
   background-color: ${({ theme, type }) => type === 'PRIMARY' ? theme.COLORS.RED_LIGHT  : theme.COLORS.GREEN_LIGHT};
   border-radius: 6px;
-  padding: 20px 16px;             
+  padding: 20px 16px;
+  gap: 2px;             
  
   justify-content: center;
   align-items: center;
@@ -30,15 +31,16 @@ export const PercentValue = styled.Text`
   font-family: ${theme.FONT_FAMILY.BOLD};
   font-size: ${theme.FONT_SIZE.XXL}px;
   `}  
+  line-height: 41.6px;
 `
 
 export const PercentText = styled.Text`
   ${({theme}) => css`
   color: ${theme.COLORS.GRAY_2};
   font-family: ${theme.FONT_FAMILY.REGULAR};
-  font-size: ${theme.FONT_SIZE.XS}px;
+  font-size: ${theme.FONT_SIZE.SM}px;
   `}  
-  line-height: 18px;
+  line-height: 18.2px;
 `
 export const Icon = styled(MaterialIcons).attrs<Props>(({ theme, type }) => ({
   size: 24,
