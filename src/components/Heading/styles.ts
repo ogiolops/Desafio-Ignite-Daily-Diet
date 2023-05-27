@@ -1,5 +1,4 @@
 import styled, { css } from "styled-components/native";
-import { TouchableOpacity } from "react-native";
 
 export const Container = styled.View`
   width: 100%;
@@ -16,7 +15,7 @@ export const HeaderMeals = styled.Text`
 `
 
 
-export const MealsContainer = styled(TouchableOpacity)`
+export const MealsContainer = styled.Text`
   width: 100%;
   height: 49px;
   border: 1px solid ${({theme }) => theme.COLORS.GRAY_5};

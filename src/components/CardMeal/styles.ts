@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components/native";
 import { TouchableOpacity } from "react-native";
 
-export type CircleTypeStyleProps = 'PRIMARY' | 'SECONDARY';
+export type CircleTypeStyleProps = true | false;
 
 type Props = {
   type: CircleTypeStyleProps
@@ -43,7 +43,7 @@ export const Divider = styled.Text`
 `
 
 export const StatusMeal = styled.View<Props>`
-  background-color: ${({ theme, type }) => type === 'PRIMARY' ?  theme.COLORS.RED_MID :  theme.COLORS.GREEN_MID };
+  background-color: ${({ theme, type }) => type === true ?  theme.COLORS.RED_MID :  theme.COLORS.GREEN_MID };
   border-radius: 100px;
   width: 14px;
   height: 14px;

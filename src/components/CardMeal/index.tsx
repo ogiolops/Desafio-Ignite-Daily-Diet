@@ -7,7 +7,7 @@ type Props = TouchableOpacityProps & {
   name: string,
 }
 
-export function CardMeals({ type='PRIMARY', hourMeal, name, ...rest }: Props){
+export function CardMeals({ type=true, hourMeal, name, ...rest }: Props){
   return(
     <Container {...rest} >
       <HourMeal>{hourMeal}</HourMeal>

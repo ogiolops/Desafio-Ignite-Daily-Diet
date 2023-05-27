@@ -1,14 +1,60 @@
+import { useState } from 'react'
 import { useNavigation } from "@react-navigation/native";
+import { SectionList, Text } from 'react-native'
 
 import { Container } from "./styles";
 import { Header } from "../../components/Header";
 import { Percent } from "../../components/Percent";
 import { Button } from "../../components/Button";
-import { Text } from "react-native";
-import { ListOfMeals } from "../../components/ListOfMeals";
+import { Heading } from "@components/Heading";
 import { CardMeals } from "../../components/CardMeal";
 
+
+
 export function Home(){
+
+  const [list, setList] = useState([
+    {
+      title: '24.05.2023',
+      data: [
+        {
+        hourMeal: '15:00',
+        mealName: 'Arroz',
+        status: false,
+        },
+        {
+          hourMeal: '18:00',
+          mealName: 'Pizza',
+          status: true,
+        },
+      ],
+    },
+    {
+      title: '25.05.2023',
+      data: [
+        {
+          hourMeal: '15:00',
+          mealName: 'Feijão',
+          status: true,
+        },
+        {
+          hourMeal: '17:00',
+          mealName: 'Soja',
+          status: false,
+        },
+        {
+          hourMeal: '17:00',
+          mealName: 'leite',
+          status: false,
+        },
+        {
+          hourMeal: '17:00',
+          mealName: 'milk',
+          status: false,
+        },
+      ],
+    },
+  ])
 
   const navigation = useNavigation();
 
@@ -41,16 +87,22 @@ export function Home(){
       />
 
 
-      <ListOfMeals
-        data='12.05.23'
+      <SectionList
+        sections={list}
+        keyExtractor={item => item.mealName}
+        renderItem={({item}) => (
+          <CardMeals 
+          hourMeal = {item.hourMeal}
+          name= {item.mealName}
+          type= {item.status}
+          />
+        )}
+        renderSectionHeader={({ section }) => (
+          <Heading 
+            title={section.title}
+          />
+        )}
       />
-
-      <CardMeals
-        hourMeal='15:00'
-        name='Banana'
-        type='SECONDARY'
-      />
-
     </Container>
   )
 }
