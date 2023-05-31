@@ -1,20 +1,20 @@
-import { TouchableOpacityProps, TextInput, TextInputProps } from 'react-native'
-import { ButtonsDietOut, ButtonsDietin, ButtonsOption, Container, Input, InputDescription, Text, TextButton } from "./styles";
+import { ButtonsDietOut, ButtonsDietin, ButtonsOption, Container, Input, InputDescription, Text, TextButton, InputProps } from "./styles";
 
-
-export function Form({ isActive = false }){
+export function Form({ ...rest }: InputProps ){
   return(
-    <Container>
+    <Container {...rest} >
         <Text>Nome</Text>
         <Input/>
-
+ 
         <Text>Descrição</Text>
-        <InputDescription/>
+        <InputDescription
+          style={{ height: 150, textAlignVertical: 'top' }}
+          multiline
+        />
 
         <Text>Está dentro da dieta?</Text>
 
         <ButtonsOption>
-
           <ButtonsDietin isActive={true} >
             <TextButton>Sim</TextButton>
           </ButtonsDietin>
@@ -22,7 +22,6 @@ export function Form({ isActive = false }){
           <ButtonsDietOut isActive={false} >
             <TextButton>Não</TextButton>
           </ButtonsDietOut>
-          
         </ButtonsOption>
 
     </Container>

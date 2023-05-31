@@ -19,14 +19,13 @@ export function NewMeal(){
         />
         <FormContainer>
           <Form/>
-
-          <Button
-            type='PRIMARY'
-            buttonName='Cadastrar '
-            onPress={ handleFeedback}
-          />
         </FormContainer>
 
+      <Button
+        type='PRIMARY'
+        buttonName='Cadastrar '
+        onPress={ handleFeedback}
+      />
     </Container>
   )
 }

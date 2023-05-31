@@ -1,8 +1,8 @@
 import { ArrowLeft } from "phosphor-react-native";
 import styled, { css } from "styled-components/native";
 
-export const Container = styled.View`
-  height: 100px;
+export const Container = styled.SafeAreaView`
+  height: 132px;
   width: 100%;
   justify-content: center;
   align-items: center;
@@ -20,6 +20,7 @@ export const TitleToBack = styled.Text`
 export const BackButton = styled.TouchableOpacity`
   position: absolute;
   left: 0;
+  top: 56px;
   padding-left: 24px; 
 `
 

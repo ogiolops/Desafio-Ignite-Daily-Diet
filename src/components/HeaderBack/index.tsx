@@ -11,9 +11,8 @@ export function HeaderBack({ name, ...Props }: Props){
   const navigation = useNavigation();
 
   function handleGoBack(){
-    navigation.navigate('home')
+    navigation.goBack()
   }
-
 
   return(
      <Container>

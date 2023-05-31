@@ -1,21 +1,31 @@
-import { Pen, Trash } from "phosphor-react-native";
+import { useNavigation } from "@react-navigation/native";
 import { Button } from "../../components/Button";
 import { HeaderBack } from "../../components/HeaderBack";
 import { Container, ContentContainer, DataContainer, Description, Status, StatusText, SubTitle, Title, Circle, ButtonContainer } from "./styles";
 import { Alert } from "react-native";
 
-function handleMealRemove() {
-  Alert.alert(
-    'Remover',
-    'Deseja realmente excluir o registro da refeição?',
-    [
-      { text: 'Cancelar', style: 'cancel'},
-      { text: 'Sim, excluir'}
-    ]
-  )
-}
+
 
 export function Meal(){
+
+  const navigation = useNavigation();
+
+  function handleEditMeal() {
+    navigation.navigate('editmeal')
+  }
+
+  function handleMealRemove() {
+    Alert.alert(
+      'Remover',
+      'Deseja realmente excluir o registro da refeição?',
+      [
+        { text: 'Cancelar', style: 'cancel'},
+        { text: 'Sim, excluir'}
+      ]
+    )
+  }
+
+
   return(
     <Container>
       <HeaderBack
@@ -42,6 +52,7 @@ export function Meal(){
           buttonName="Editar refeição"
           icon='border-color'
           type='PRIMARY'
+          onPress={ handleEditMeal }
         />
         <Button 
           buttonName="Excluir refeição"

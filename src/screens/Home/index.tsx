@@ -2,13 +2,11 @@ import { useState } from 'react'
 import { useNavigation } from "@react-navigation/native";
 import { SectionList, Text } from 'react-native'
 
-import { Container } from "./styles";
+import { Container, Heading, SectionListContainer} from "./styles";
 import { Header } from "../../components/Header";
 import { Percent } from "../../components/Percent";
 import { Button } from "../../components/Button";
-import { Heading } from "@components/Heading";
 import { CardMeals } from "../../components/CardMeal";
-
 
 
 export function Home(){
@@ -25,6 +23,21 @@ export function Home(){
         {
           hourMeal: '18:00',
           mealName: 'Pizza',
+          status: true,
+        },
+        {
+          hourMeal: '18:00',
+          mealName: 'pastel',
+          status: true,
+        },
+        {
+          hourMeal: '18:00',
+          mealName: 'queijo',
+          status: true,
+        },
+        {
+          hourMeal: '18:00',
+          mealName: 'churrasco',
           status: true,
         },
       ],
@@ -66,6 +79,10 @@ export function Home(){
     navigation.navigate('newmeal')
   }
 
+  function handleMeal() {
+    navigation.navigate('meal')
+  }
+
   return(
     <Container>
       <Header/>
@@ -86,23 +103,29 @@ export function Home(){
         onPress={ handleNewMeal }
       />
 
-
+      <SectionListContainer>
       <SectionList
-        sections={list}
-        keyExtractor={item => item.mealName}
-        renderItem={({item}) => (
+          sections={list}
+          keyExtractor={item => item.mealName}
+          renderItem={({item}) => (
           <CardMeals 
-          hourMeal = {item.hourMeal}
-          name= {item.mealName}
-          type= {item.status}
+            hourMeal = {item.hourMeal}
+            name= {item.mealName}
+            type= {item.status}
+            onPress={ handleMeal }
           />
         )}
-        renderSectionHeader={({ section }) => (
-          <Heading 
-            title={section.title}
-          />
+        renderSectionHeader={({ section: {title} }) => (
+          <Heading>{title}</Heading>
         )}
+        showsVerticalScrollIndicator={false}
+        ListEmptyComponent={() => (
+          <Text style={{flex: 1, textAlign: 'center', justifyContent: 'center', marginTop: 60}} >Poxa, Voce ainda nao possui nenhuma refeiçao!</Text>
+        )}
+
       />
+      </SectionListContainer>
+
     </Container>
   )
 }

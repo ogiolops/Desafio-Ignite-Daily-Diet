@@ -1,6 +1,9 @@
 import styled, { css } from "styled-components/native";
 import { TextInput } from "react-native";
 import { TouchableOpacity } from "react-native";
+import { TextInputProps } from 'react-native';
+
+export type InputProps = TextInputProps;
 
 export type ButtonStyleProps = {
   isActive?: boolean;
@@ -28,11 +31,8 @@ export const Input = styled(TextInput)`
 `
 
 export const InputDescription = styled(TextInput)`
-  width: 100%;
-  height: 120px;
   border: 1px solid ${({theme}) => theme.COLORS.GRAY_5};
-  border-radius: 6px;
-  padding: 14px;
+  padding: 10px;
 `
 
 export const ButtonsOption = styled.View`
