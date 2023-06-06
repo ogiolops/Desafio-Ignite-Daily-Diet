@@ -1,31 +1,53 @@
 import { useNavigation } from "@react-navigation/native";
 import { Button } from "../../components/Button";
-import { Form } from "../../components/Form";
 import { HeaderBack } from "../../components/HeaderBack";
-import { Container, FormContainer } from "./styles";
+import { Container, ContainerContent, DateTimeContainer, OptionContainer } from "./styles";
+import { Input } from "@components/Input";
+import { ButtonOptions } from "@components/ButtonOptions";
+
 
 export function NewMeal(){
-
   const navigation = useNavigation();
-
   function handleFeedback() {
     navigation.navigate('feedback')
   }
 
   return(
     <Container>
-        <HeaderBack 
-          name='Nova refeição'
-        />
-        <FormContainer>
-          <Form/>
-        </FormContainer>
+        <HeaderBack name='Nova refeição'/>
+        <ContainerContent>
 
-      <Button
-        type='PRIMARY'
-        buttonName='Cadastrar '
-        onPress={ handleFeedback}
-      />
+          <Input 
+            name="Nome"
+            heightInput='DEFAULT'
+          />
+
+          <Input 
+            name="Descrição"
+            heightInput='HIGHT'
+          />
+
+          <DateTimeContainer>
+            <Input 
+              name="Data"
+              heightInput='DEFAULT'
+              style={{ flex: 1 }}
+            />
+            <Input 
+              name="Hora"
+              heightInput='DEFAULT'
+              style={{ flex: 1 }}
+            />
+          </DateTimeContainer>
+
+          <Button
+            type='PRIMARY'
+            buttonName='Cadastrar '
+            onPress={ handleFeedback}
+          />
+        </ContainerContent>
+
+
     </Container>
   )
 }

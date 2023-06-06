@@ -11,6 +11,7 @@ import { CardMeals } from "../../components/CardMeal";
 
 export function Home(){
 
+  const [ percentMeal, setPercentMeals ] = useState(20)
   const [list, setList] = useState([
     {
       title: '24.05.2023',
@@ -69,10 +70,12 @@ export function Home(){
     },
   ])
 
+
+
   const navigation = useNavigation();
 
   function handleStatistic() {
-    navigation.navigate('statistics');
+    navigation.navigate('statistics', { percentMeal });
   }
 
   function handleNewMeal() {
@@ -87,10 +90,10 @@ export function Home(){
     <Container>
       <Header/>
       <Percent 
-        Percentmeals={`30,00`}
-        type={"PRIMARY"}
+        Percentmeals={percentMeal}
+        type={ percentMeal <= 49 ? 'PRIMARY' : 'SECONDARY'}
         icon="north-east"
-        SizeBox='LARGE'
+        SizeBox='MEDIUM'
         onPress={ handleStatistic }
       /> 
       

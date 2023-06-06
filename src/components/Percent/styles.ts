@@ -1,4 +1,3 @@
-import { ArrowUpRight } from "phosphor-react-native";
 import { TouchableOpacity } from "react-native";
 import styled, { css } from "styled-components/native";
 import { MaterialIcons } from '@expo/vector-icons'
@@ -13,8 +12,7 @@ type Props = {
 
 export const Container = styled(TouchableOpacity)<Props>`
   width: 100%;
-  /* height: ${({ theme, SizeBox }) => SizeBox === 'MEDIUM' ? theme.BOX_SIZE.MD  : theme.BOX_SIZE.LG}px;  */
-
+  height: ${({ theme, SizeBox }) => SizeBox === 'MEDIUM' ? theme.BOX_SIZE.MD : theme.BOX_SIZE.LG }px;
   background-color: ${({ theme, type }) => type === 'PRIMARY' ? theme.COLORS.RED_LIGHT  : theme.COLORS.GREEN_LIGHT};
   border-radius: 6px;
   padding: 20px 16px;

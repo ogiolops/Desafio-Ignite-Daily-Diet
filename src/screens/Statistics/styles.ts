@@ -4,9 +4,7 @@ import styled, { css } from "styled-components/native";
 
 export const Container = styled(SafeAreaView)`
   flex: 1;
-  background-color: ${({theme}) => theme.COLORS.RED_LIGHT};
 ` 
-
 
 export const HeaderStatistics = styled.View`
   width: 100%;
@@ -20,6 +18,7 @@ export const StatisticsContent = styled.View`
   border-top-right-radius: 20px ;
   border-top-left-radius: 20px;
   align-items: center;
+  margin-top: -31px;
 `
 
 export const Title = styled.Text`

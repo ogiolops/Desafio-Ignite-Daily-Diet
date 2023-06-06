@@ -4,7 +4,7 @@ import { ColorTypeStyleProps, Container, Icon, PercentText, PercentValue, SizeBo
 
 type Props = TouchableOpacityProps & {
   icon?: keyof typeof MaterialIcons.glyphMap,
-  Percentmeals: string;
+  Percentmeals: number;
   type?: ColorTypeStyleProps;
   SizeBox: SizeBoxPercent;
 }

@@ -1,22 +1,29 @@
 import { Percent } from "../../components/Percent";
+import { useRoute } from "@react-navigation/native";
 import { Backicon } from "../../components/Backicon";
 import { Container, StatisticsContent, Title, HeaderStatistics, BoxInfos, NumberStatistics, TextStatistics, BoxesContainer, BoxInfosOn, BoxInfosOff } from "./styles";
 
-
+type RouteParams = {
+  percentMeal: number;
+}
 
 export function Statistics(){
+
+  const route = useRoute();
+  const { percentMeal } = route.params as RouteParams;
+
   return(
     <Container>
       <HeaderStatistics>
         <Percent
-            type={"PRIMARY"}
-            Percentmeals={'30,00'}
+            type={ percentMeal <= 49 ? 'PRIMARY' : 'SECONDARY'}
+            Percentmeals={percentMeal}
             SizeBox="LARGE"
         />
 
         <Backicon 
             icon="arrow-back"
-            type='PRIMARY'
+            type={ percentMeal <= 49 ? 'PRIMARY' : 'SECONDARY'}
         />
       </HeaderStatistics>
 

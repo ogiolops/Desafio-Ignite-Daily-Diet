@@ -33,6 +33,10 @@ export default {
   },
   BOX_SIZE: {
     MD: 102,
-    LG: 160
+    LG: 200
+  },
+  INPUT_HIGHT_SIZE: {
+    DF: 48,
+    HG: 120
   }
 };
