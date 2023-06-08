@@ -5,10 +5,9 @@ export const Container = styled.View`
 `
 
 export const ContentContainer = styled.View`
-  flex: 1;
   padding: 30px 24px;
   border-radius: 20px;
-  margin-top: -20px;
+  margin-top: -32px;
   background-color: ${({ theme }) => theme.COLORS.WHITE};
 `
 
@@ -52,6 +51,7 @@ export const Status = styled.View`
   width: 144px;
   padding: 8px 16px;
   gap: 8px;
+  margin-bottom: 240px;
 `
 
 export const Circle = styled.View`
@@ -67,7 +67,6 @@ export const StatusText = styled.Text`
 `
 
 export const ButtonContainer = styled.View`
-  margin: 0  24px;
   flex-direction: column;
   gap: 9px;
   margin-bottom: 20px;

@@ -26,6 +26,10 @@ export const DateTimeContainer = styled.View`
   justify-content: space-between;
 `
 
+export const ButtonOptionsContainer = styled.View`
+  flex: 1;
+`
+
 export const OptionContainer = styled.View`
   gap: 18px;
   flex-direction: row;

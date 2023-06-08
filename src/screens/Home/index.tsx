@@ -8,9 +8,11 @@ import { Percent } from "../../components/Percent";
 import { Button } from "../../components/Button";
 import { CardMeals } from "../../components/CardMeal";
 
+export type DietVariant = 'inDiet' | 'outDiet';
+
 
 export function Home(){
-
+  const [diet, setDiet] = useState<DietVariant>('inDiet');
   const [ percentMeal, setPercentMeals ] = useState(20)
   const [list, setList] = useState([
     {

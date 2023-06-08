@@ -1,7 +1,18 @@
 import { useNavigation } from "@react-navigation/native";
 import { Button } from "../../components/Button";
 import { HeaderBack } from "../../components/HeaderBack";
-import { Container, ContentContainer, DataContainer, Description, Status, StatusText, SubTitle, Title, Circle, ButtonContainer } from "./styles";
+import { 
+  Container, 
+  ContentContainer, 
+  DataContainer, 
+  Description, 
+  Status, 
+  StatusText, 
+  SubTitle, 
+  Title, 
+  Circle, 
+  ButtonContainer 
+} from "./styles";
 import { Alert } from "react-native";
 
 
@@ -33,6 +44,7 @@ export function Meal(){
       />
 
       <ContentContainer>
+
         <Title>Sanduíche</Title>
         <Description>Sanduíche de pão integral com atum e salada de alface e tomate</Description>
         <SubTitle>Data e hora</SubTitle>
@@ -42,10 +54,10 @@ export function Meal(){
           <Description>16:00</Description>
         </DataContainer>
         <Status>
-          <Circle></Circle>
+          <Circle/>
           <StatusText>dentro da dieta</StatusText>
         </Status>
-      </ContentContainer>
+
 
       <ButtonContainer>
         <Button 
@@ -63,7 +75,7 @@ export function Meal(){
       </ButtonContainer>
 
 
-
+      </ContentContainer>
     </Container>
   ) 
 }
