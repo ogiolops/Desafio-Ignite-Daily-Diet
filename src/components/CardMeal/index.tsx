@@ -11,7 +11,7 @@ export function CardMeals({ type=true, hourMeal, name, ...rest }: Props){
   return(
     <Container {...rest} >
       <HourMeal>{hourMeal}</HourMeal>
-      <Divider></Divider>
+      <Divider/>
       <NameMeal>{name}</NameMeal>
       <StatusMeal
         type={type}

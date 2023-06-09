@@ -12,7 +12,7 @@ export type DietVariant = 'inDiet' | 'outDiet';
 
 
 export function Home(){
-  const [diet, setDiet] = useState<DietVariant>('inDiet');
+  // const [diet, setDiet] = useState<DietVariant>('inDiet');
   const [ percentMeal, setPercentMeals ] = useState(20)
   const [list, setList] = useState([
     {
@@ -21,56 +21,11 @@ export function Home(){
         {
         hourMeal: '15:00',
         mealName: 'Arroz',
-        status: false,
-        },
-        {
-          hourMeal: '18:00',
-          mealName: 'Pizza',
-          status: true,
-        },
-        {
-          hourMeal: '18:00',
-          mealName: 'pastel',
-          status: true,
-        },
-        {
-          hourMeal: '18:00',
-          mealName: 'queijo',
-          status: true,
-        },
-        {
-          hourMeal: '18:00',
-          mealName: 'churrasco',
-          status: true,
+        status: true,
         },
       ],
-    },
-    {
-      title: '25.05.2023',
-      data: [
-        {
-          hourMeal: '15:00',
-          mealName: 'Feijão',
-          status: true,
-        },
-        {
-          hourMeal: '17:00',
-          mealName: 'Soja',
-          status: false,
-        },
-        {
-          hourMeal: '17:00',
-          mealName: 'leite',
-          status: false,
-        },
-        {
-          hourMeal: '17:00',
-          mealName: 'milk',
-          status: false,
-        },
-      ],
-    },
-  ])
+    }
+]);
 
 
 

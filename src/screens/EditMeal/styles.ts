@@ -4,11 +4,18 @@ export const Container = styled.View`
   flex: 1;
 `
 export const ContentContainer = styled.View`
-  padding: 0 24px;
-  flex: 1;
-  margin-bottom: 20px;
+  padding: 30px 24px;
+  border-radius: 20px;
+  margin-top: -32px;
+  background-color: ${({ theme }) => theme.COLORS.WHITE};
 `
-export const ButtonContainer = styled.View`
-  padding: 0 24px;
-  margin-bottom: 20px;
+
+export const DateTimeContainer = styled.View`
+  gap: 18px;
+  flex-direction: row;
+  justify-content: space-between;
+`
+
+export const ButtonOptionsContainer = styled.View`
+  margin-bottom: 60px;
 `
