@@ -1,7 +1,6 @@
 import { useState, useCallback } from 'react'
 import { useNavigation, useFocusEffect } from "@react-navigation/native";
 import { SectionList, Text } from 'react-native'
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { Container, Heading, SectionListContainer} from "./styles";
 import { Header } from "../../components/Header";
@@ -9,7 +8,6 @@ import { Percent } from "../../components/Percent";
 import { Button } from "../../components/Button";
 import { CardMeals } from "../../components/CardMeal";
 import { mealsGetAll } from '@storage/meal/mealsGetAll';
-import { MEAL_COLLECTION } from '@storage/storageConfig';
 import { MealDTO } from 'src/dtos/MealDTO';
 import { getMealsByDate } from '@storage/meal/getMealsByDate';
 
@@ -31,13 +29,13 @@ export interface DataProps {
 
 export function Home(){
   const [diet, setDiet] = useState<DietVariant>('inDiet');
-  const [ percentMeal, setPercentMeals ] = useState(0);
+  const [percentMeal, setPercentMeals ] = useState<number | any>();
   const [meals, setMeals] = useState<DataProps[]>([]);
   const dietParamiter = 49;
   const navigation = useNavigation();
 
   function handleStatistic() {
-    navigation.navigate('statistics', { percentMeal });
+    navigation.navigate('statistics', { percentMeal, diet });
   }
 
   function handleNewMeal() {
@@ -48,15 +46,27 @@ export function Home(){
     navigation.navigate('meal')
   }
 
-  async function insideMealPercent() {
-    const data = await mealsGetAll()
-    const insideMeals = data.map(function(e) { return e.inDiet})
-    const totalMealsDiet = (insideMeals.length)
-    const mealsInsideDiet = insideMeals.filter((e) => e === true )
-    const totalMealsinDiet = mealsInsideDiet.length
-    const calcPercentMeals = (totalMealsinDiet / totalMealsDiet * 100).toFixed()
+  function parcentInDietVallue() {
+    const percentVariant =  percentMeal >= dietParamiter ? 'inDiet' : 'outDiet'
+    setDiet(percentVariant)
+  }
 
-    setPercentMeals(parseInt(calcPercentMeals))
+  async function insideMealPercent() {
+    try {
+      const data = await mealsGetAll()
+      const insideMeals = data.map(function(e) { return e.inDiet})
+      const totalMealsDiet = (insideMeals.length)
+      const mealsInsideDiet = insideMeals.filter((e) => e === true )
+      const totalMealsinDiet = mealsInsideDiet.length
+      let calcPercentMeals = (totalMealsinDiet / totalMealsDiet * 100)
+  
+      if (isNaN(calcPercentMeals)) calcPercentMeals = 0;
+      setPercentMeals((calcPercentMeals).toFixed(2))
+
+    } catch (error) {
+      console.log(error)
+    }
+
   }
 
   async function fetchMeals(){
@@ -75,6 +85,7 @@ export function Home(){
   useFocusEffect(useCallback(() => {
     fetchMeals();
     insideMealPercent();
+    parcentInDietVallue();
   }, []));
 
   return(
@@ -82,7 +93,7 @@ export function Home(){
       <Header/>
       <Percent 
         Percentmeals={percentMeal}
-        variant={ percentMeal <= dietParamiter ? 'outDiet' : 'inDiet' }
+        variant={ diet}
         icon="north-east"
         SizeBox='MEDIUM'
         onPress={ handleStatistic }

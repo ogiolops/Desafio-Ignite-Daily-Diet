@@ -6,6 +6,7 @@ export declare global {
       };
       statistics: {
         percentMeal: number;
+        diet: string;
       };
       newmeal: undefined;
       feedback: {

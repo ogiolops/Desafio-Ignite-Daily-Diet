@@ -2,10 +2,12 @@ import styled from "styled-components/native";
 import { TouchableOpacity } from "react-native";
 import { MaterialIcons } from '@expo/vector-icons'
 
-export type ButtonIconTypeStyleProps = 'PRIMARY' | 'SECONDARY';
+import { DietVariant } from "@screens/Home";
+
+// export type ButtonIconTypeStyleProps = 'PRIMARY' | 'SECONDARY';
 
 type Props = {
-  type: ButtonIconTypeStyleProps;
+  type: DietVariant;
 }
 
 export const Container = styled(TouchableOpacity)`
@@ -24,5 +26,5 @@ export const Container = styled(TouchableOpacity)`
 
 export const Icon= styled(MaterialIcons).attrs<Props>(({ theme, type }) => ({
   size: 30,
-  color: type === 'PRIMARY' ? theme.COLORS.RED_DARK : theme.COLORS.GREEN_DARK
+  color: type === 'inDiet' ? theme.COLORS.GREEN_DARK : theme.COLORS.RED_DARK 
 }))``
