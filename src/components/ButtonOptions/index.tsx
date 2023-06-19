@@ -10,10 +10,6 @@ type Props = {
 export function ButtonOptions({title, options, onSelect}: Props){
 
   const [userOption, setUserOption] = useState<string | null>(null);
-
-  const userselected = userOption;
-  console.log(userselected)
-
   function handleUserOption(option: string) {
     onSelect(option);
     setUserOption(option);

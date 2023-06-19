@@ -1,5 +1,5 @@
 import { Container, Label, InputText, InputProps } from "./styles";
-import { TextInputProps } from 'react-native';
+import { TextInputProps, TextInput } from 'react-native';
 
 type Props = TextInputProps &  {
   name: string;
@@ -11,6 +11,7 @@ export function Input({name, heightInput, ...rest }: Props){
     <Container {...rest} >
         <Label>{name}</Label>
         <InputText
+          {...rest}
           heightInput={heightInput}
           style={{ textAlignVertical: 'top',}}
         />

@@ -28,6 +28,7 @@ export const Text = styled.Text`
     font-size: ${ theme.FONT_SIZE.MD}px;
   `}
   margin-bottom: 40px;
+  text-align: center;
 `
 
 export const Logo = styled.Image`

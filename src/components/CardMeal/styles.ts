@@ -43,7 +43,7 @@ export const Divider = styled.Text`
 `
 
 export const StatusMeal = styled.View<Props>`
-  background-color: ${({ theme, type }) => type === true ?  theme.COLORS.RED_MID :  theme.COLORS.GREEN_MID };
+  background-color: ${({ theme, type }) => type === false ?  theme.COLORS.RED_MID :  theme.COLORS.GREEN_MID };
   border-radius: 100px;
   width: 14px;
   height: 14px;

@@ -1,17 +1,18 @@
 import { TouchableOpacityProps } from "react-native";
 import { MaterialIcons } from '@expo/vector-icons'
-import { ColorTypeStyleProps, Container, Icon, PercentText, PercentValue, SizeBoxPercent} from "./styles";
+import { Container, Icon, PercentText, PercentValue, SizeBoxPercent} from "./styles";
+import { DietVariant } from "@screens/Home";
 
 type Props = TouchableOpacityProps & {
   icon?: keyof typeof MaterialIcons.glyphMap,
   Percentmeals: number;
-  type?: ColorTypeStyleProps;
   SizeBox: SizeBoxPercent;
+  variant: DietVariant;
 }
 
-export function Percent({ icon, SizeBox, Percentmeals, type='PRIMARY', ...rest }: Props){
+export function Percent({ icon, SizeBox, Percentmeals, variant , ...rest }: Props){
   return(
-    <Container type={type} {...rest} SizeBox={SizeBox}  >
+    <Container variant={variant} {...rest} SizeBox={SizeBox}  >
       <PercentValue>
         {Percentmeals}%
       </PercentValue>
@@ -22,7 +23,7 @@ export function Percent({ icon, SizeBox, Percentmeals, type='PRIMARY', ...rest }
 
       <Icon 
         name={icon}
-        type={type}
+        variant={variant}
       />
     </Container>
   )

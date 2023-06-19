@@ -1,19 +1,19 @@
 import { TouchableOpacity } from "react-native";
 import styled, { css } from "styled-components/native";
 import { MaterialIcons } from '@expo/vector-icons'
+import { DietVariant } from "@screens/Home";
 
-export type   ColorTypeStyleProps = 'PRIMARY' | 'SECONDARY';
 export type SizeBoxPercent = 'MEDIUM' | 'LARGE';
 
 type Props = {
-  type: ColorTypeStyleProps;
   SizeBox: SizeBoxPercent;
+  variant: DietVariant;
 }
 
 export const Container = styled(TouchableOpacity)<Props>`
   width: 100%;
   height: ${({ theme, SizeBox }) => SizeBox === 'MEDIUM' ? theme.BOX_SIZE.MD : theme.BOX_SIZE.LG }px;
-  background-color: ${({ theme, type }) => type === 'PRIMARY' ? theme.COLORS.RED_LIGHT  : theme.COLORS.GREEN_LIGHT};
+  background-color: ${({ theme, variant }) => variant === 'outDiet' ? theme.COLORS.RED_LIGHT  : theme.COLORS.GREEN_LIGHT};
   border-radius: 6px;
   padding: 20px 16px;
   gap: 2px;             
@@ -40,9 +40,9 @@ export const PercentText = styled.Text`
   `}  
   line-height: 18.2px;
 `
-export const Icon = styled(MaterialIcons).attrs<Props>(({ theme, type }) => ({
+export const Icon = styled(MaterialIcons).attrs<Props>(({ theme, variant }) => ({
   size: 24,
-  color: type === 'PRIMARY' ? theme.COLORS.RED_DARK  : theme.COLORS.GREEN_DARK,
+  color: variant === 'outDiet' ? theme.COLORS.RED_DARK  : theme.COLORS.GREEN_DARK,
 }))`
 
   position: absolute;
