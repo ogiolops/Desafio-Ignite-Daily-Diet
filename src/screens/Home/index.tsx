@@ -42,12 +42,12 @@ export function Home(){
     navigation.navigate('newmeal')
   }
 
-  function handleMeal() {
-    navigation.navigate('meal')
+  function handleOpenMeal(meal: MealDTO) {
+    navigation.navigate('meal', { meal });
   }
 
   function parcentInDietVallue() {
-    const percentVariant =  percentMeal >= dietParamiter ? 'inDiet' : 'outDiet'
+    const percentVariant =  dietParamiter >= percentMeal ? 'inDiet' : 'outDiet';
     setDiet(percentVariant)
   }
 
@@ -88,6 +88,8 @@ export function Home(){
     parcentInDietVallue();
   }, []));
 
+  console.log('status da dieta',diet)
+
   return(
     <Container>
       <Header/>
@@ -117,7 +119,7 @@ export function Home(){
             hourMeal = {meal.hour}
             name= {meal.name}
             dietStatus= {meal.inDiet}
-            onPress={ handleMeal }
+            onPress={() => handleOpenMeal(meal) }
           />
         )}
         renderSectionHeader={({ section: {title} }) => (

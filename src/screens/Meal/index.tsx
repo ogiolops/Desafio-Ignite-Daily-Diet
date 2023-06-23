@@ -1,4 +1,4 @@
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import { Button } from "../../components/Button";
 import { HeaderBack } from "../../components/HeaderBack";
 import { 
@@ -14,11 +14,18 @@ import {
   ButtonContainer 
 } from "./styles";
 import { Alert } from "react-native";
+import { MealDTO } from "src/dtos/MealDTO";
+import { DietVariant } from "@screens/Home";
 
-
+type RouteParams = {
+  meal: MealDTO;
+  diet: DietVariant;
+}
 
 export function Meal(){
 
+  const route = useRoute();
+  const { meal } = route.params as RouteParams;
   const navigation = useNavigation();
 
   function handleEditMeal() {
@@ -36,7 +43,6 @@ export function Meal(){
     )
   }
 
-
   return(
     <Container>
       <HeaderBack
@@ -45,17 +51,17 @@ export function Meal(){
 
       <ContentContainer>
 
-        <Title>Sanduíche</Title>
-        <Description>Sanduíche de pão integral com atum e salada de alface e tomate</Description>
+        <Title>{meal.name}</Title>
+        <Description>{meal.description}</Description>
         <SubTitle>Data e hora</SubTitle>
         <DataContainer>
-          <Description>12/08/2022</Description>
+          <Description>{meal.date}</Description>
           <Description>às</Description>
-          <Description>16:00</Description>
+          <Description>{meal.hour}</Description>
         </DataContainer>
         <Status>
-          <Circle/>
-          <StatusText>dentro da dieta</StatusText>
+          <Circle variant={meal.inDiet === true ? 'inDiet' : 'outDiet'}/>
+          <StatusText>{meal.inDiet === true ? 'dentro da dieta' : 'fora da dieta'}</StatusText>
         </Status>
 
 

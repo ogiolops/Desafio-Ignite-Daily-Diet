@@ -26,7 +26,9 @@ export function Feedback(){
 
         <Title
           type={statusDiet ? 'POSITIVE' : 'NEGATIVE' }
-          >{ statusDiet ? 'Continue assim!' : 'Que pena!'}</Title>
+        >
+          { statusDiet ? 'Continue assim!' : 'Que pena!'}
+        </Title>
         <Text>{ statusDiet ? `Você continua dentro da dieta. Muito bem!` : 'Você saiu da dieta dessa vez, mas continue se esforçando e não desista!'}</Text>
         <Logo source={ statusDiet ? positive : negative } />
 

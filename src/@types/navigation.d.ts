@@ -1,3 +1,5 @@
+import { MealDTO } from "src/dtos/MealDTO";
+
 export declare global {
   namespace ReactNavigation {
     interface RootParamList {
@@ -12,7 +14,9 @@ export declare global {
       feedback: {
         statusDiet: boolean;
       };
-      meal: undefined;
+      meal: {
+        meal: MealDTO;
+      };
       editmeal: undefined;
     }
   }

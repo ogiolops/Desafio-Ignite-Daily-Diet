@@ -1,4 +1,10 @@
+import { DietVariant } from "@screens/Home";
 import styled, { css } from "styled-components/native";
+
+type Props = {
+  variant: DietVariant
+}
+
 
 export const Container = styled.View`
   flex: 1;
@@ -54,11 +60,11 @@ export const Status = styled.View`
   margin-bottom: 240px;
 `
 
-export const Circle = styled.View`
+export const Circle = styled.View<Props>`
   border-radius: 1000px;
   width: 8px;
   height: 8px;
-  background-color: ${({ theme }) => theme.COLORS.GREEN_DARK};
+  background-color: ${({ theme, variant }) => variant ? theme.COLORS.GREEN_DARK : theme.COLORS.RED_DARK};
 `
 
 export const StatusText = styled.Text`
