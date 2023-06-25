@@ -54,7 +54,7 @@ export const Status = styled.View`
   align-items: center;
   border-radius: 100px;
   flex-direction: row;
-  width: 144px;
+  width: 130px;
   padding: 8px 16px;
   gap: 8px;
   margin-bottom: 240px;
@@ -64,7 +64,7 @@ export const Circle = styled.View<Props>`
   border-radius: 1000px;
   width: 8px;
   height: 8px;
-  background-color: ${({ theme, variant }) => variant ? theme.COLORS.GREEN_DARK : theme.COLORS.RED_DARK};
+  background-color: ${({ theme, variant }) => variant === 'inDiet' ? theme.COLORS.GREEN_DARK : theme.COLORS.RED_DARK};
 `
 
 export const StatusText = styled.Text`
@@ -73,7 +73,8 @@ export const StatusText = styled.Text`
 `
 
 export const ButtonContainer = styled.View`
+  margin: 0 20px;
   flex-direction: column;
   gap: 9px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 `

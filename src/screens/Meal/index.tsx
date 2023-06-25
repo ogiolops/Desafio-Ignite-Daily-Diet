@@ -1,6 +1,7 @@
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { Button } from "../../components/Button";
 import { HeaderBack } from "../../components/HeaderBack";
+import { removeMeals } from '@storage/meal/removeMeals';
 import { 
   Container, 
   ContentContainer, 
@@ -19,17 +20,27 @@ import { DietVariant } from "@screens/Home";
 
 type RouteParams = {
   meal: MealDTO;
-  diet: DietVariant;
+  variant: DietVariant;
 }
 
-export function Meal(){
+export function Meal({variant }:RouteParams ){
 
   const route = useRoute();
   const { meal } = route.params as RouteParams;
   const navigation = useNavigation();
 
   function handleEditMeal() {
-    navigation.navigate('editmeal')
+    navigation.navigate('editmeal', {meal})
+  }
+
+  async function mealRemove() {
+    try {
+      await removeMeals(meal.id);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      navigation.goBack()
+    }
   }
 
   function handleMealRemove() {
@@ -38,8 +49,8 @@ export function Meal(){
       'Deseja realmente excluir o registro da refeição?',
       [
         { text: 'Cancelar', style: 'cancel'},
-        { text: 'Sim, excluir'}
-      ]
+        { text: 'Sim, excluir', onPress: () =>mealRemove()}
+      ],
     )
   }
 
@@ -50,7 +61,6 @@ export function Meal(){
       />
 
       <ContentContainer>
-
         <Title>{meal.name}</Title>
         <Description>{meal.description}</Description>
         <SubTitle>Data e hora</SubTitle>
@@ -64,24 +74,22 @@ export function Meal(){
           <StatusText>{meal.inDiet === true ? 'dentro da dieta' : 'fora da dieta'}</StatusText>
         </Status>
 
+      </ContentContainer>
 
       <ButtonContainer>
-        <Button 
-          buttonName="Editar refeição"
-          icon='border-color'
-          type='PRIMARY'
-          onPress={ handleEditMeal }
-        />
-        <Button 
-          buttonName="Excluir refeição"
-          icon='delete'
-          type='SECONDARY'
-          onPress={handleMealRemove}
-        />
-      </ButtonContainer>
-
-
-      </ContentContainer>
+          <Button 
+            buttonName="Editar refeição"
+            icon='border-color'
+            type='PRIMARY'
+            onPress={ handleEditMeal }
+          />
+          <Button 
+            buttonName="Excluir refeição"
+            icon='delete'
+            type='SECONDARY'
+            onPress={handleMealRemove}
+          />
+        </ButtonContainer>
     </Container>
   ) 
 }

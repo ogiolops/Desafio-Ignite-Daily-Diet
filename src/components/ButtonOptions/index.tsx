@@ -1,5 +1,12 @@
 import { useState } from 'react'
-import { ButtonOptionsContainer, Container, OptionIcon, OptionText, OptionWrapper, Title } from "./styles";
+import { 
+  ButtonOptionsContainer, 
+  Container, 
+  OptionIcon, 
+  OptionText, 
+  OptionWrapper, 
+  Title 
+} from "./styles";
 
 type Props = {
   title: string;
@@ -9,7 +16,7 @@ type Props = {
 
 export function ButtonOptions({title, options, onSelect}: Props){
 
-  const [userOption, setUserOption] = useState<string | null>(null);
+  const [userOption, setUserOption] = useState<string | null>();
   function handleUserOption(option: string) {
     onSelect(option);
     setUserOption(option);

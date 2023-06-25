@@ -24,14 +24,13 @@ export type Meal = {
 export interface DataProps {
   title: string;
   data: MealDTO[];
-}
+};
 
 
 export function Home(){
   const [diet, setDiet] = useState<DietVariant>('inDiet');
   const [percentMeal, setPercentMeals ] = useState<number | any>();
   const [meals, setMeals] = useState<DataProps[]>([]);
-  const dietParamiter = 49;
   const navigation = useNavigation();
 
   function handleStatistic() {
@@ -46,9 +45,17 @@ export function Home(){
     navigation.navigate('meal', { meal });
   }
 
-  function parcentInDietVallue() {
-    const percentVariant =  dietParamiter >= percentMeal ? 'inDiet' : 'outDiet';
-    setDiet(percentVariant)
+  async function fetchMeals(){
+    try {
+      const data = await mealsGetAll()
+
+      const mealsByDate = getMealsByDate(data)
+
+      setMeals(mealsByDate.sort().reverse())
+
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   async function insideMealPercent() {
@@ -66,29 +73,24 @@ export function Home(){
     } catch (error) {
       console.log(error)
     }
-
   }
 
-  async function fetchMeals(){
-    try {
-      const data = await mealsGetAll()
-
-      const mealsByDate = getMealsByDate(data)
-
-      setMeals(mealsByDate.sort().reverse())
-
-    } catch (error) {
-      console.log(error)
-    }
+  function parcentInDietVallue() {
+    const percentVariant =  percentMeal >= 49  ? 'inDiet' : 'outDiet';
+    setDiet(percentVariant)
   }
 
   useFocusEffect(useCallback(() => {
     fetchMeals();
-    insideMealPercent();
-    parcentInDietVallue();
-  }, []));
+  }, [meals]));
 
-  console.log('status da dieta',diet)
+  useFocusEffect(useCallback(() => {
+    insideMealPercent();
+  }, [meals]));
+
+  useFocusEffect(useCallback(() => {
+    parcentInDietVallue();
+  }, [meals]));
 
   return(
     <Container>

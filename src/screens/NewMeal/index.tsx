@@ -32,8 +32,6 @@ export function NewMeal(){
       hour: time,
       inDiet: statusDiet,
     }
-
-    console.log(newMeal)
     try {
       await mealCreate(newMeal);
     } catch (error) {

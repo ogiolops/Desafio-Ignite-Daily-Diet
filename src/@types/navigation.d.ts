@@ -17,7 +17,9 @@ export declare global {
       meal: {
         meal: MealDTO;
       };
-      editmeal: undefined;
+      editmeal: {
+        meal: MealDTO;
+      };
     }
   }
 }
