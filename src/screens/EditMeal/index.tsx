@@ -4,8 +4,9 @@ import { Input } from "@components/Input";
 import { HeaderBack } from "@components/HeaderBack";
 import { ButtonOptions } from "@components/ButtonOptions";
 import { MealDTO } from "src/dtos/MealDTO";
-import { useRoute } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import { useState } from "react";
+import { updatedMeals } from "@storage/meal/updatedMeals";
 
 type RouteParams = {
   meal: MealDTO;
@@ -22,6 +23,8 @@ export function EditMeal(){
   const [hour, setHour] = useState(meal.hour)
   const [inDiet, setInDiet] = useState(meal.inDiet ? 'Sim' : 'Não')
 
+  const navigation = useNavigation();
+
   function handleDietOption(option: string) {
     setInDiet(option);
   }
@@ -35,13 +38,12 @@ export function EditMeal(){
       hour: hour,
       inDiet: inDiet === 'Sim' ? true : false,
     }
-
-    console.log(mealUpdated)
-
     try {
-
+      await updatedMeals(mealUpdated);
     } catch (error) {
       console.log(error)
+    }finally {
+      navigation.navigate('home');
     }
   }
 

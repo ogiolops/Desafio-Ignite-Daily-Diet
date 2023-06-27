@@ -29,7 +29,7 @@ export interface DataProps {
 
 export function Home(){
   const [diet, setDiet] = useState<DietVariant>('inDiet');
-  const [percentMeal, setPercentMeals ] = useState<number | any>();
+  const [percentMeal, setPercentMeals ] = useState<number | any>(0);
   const [meals, setMeals] = useState<DataProps[]>([]);
   const navigation = useNavigation();
 
@@ -54,7 +54,7 @@ export function Home(){
       setMeals(mealsByDate.sort().reverse())
 
     } catch (error) {
-      console.log(error)
+      console.log('erro FechMeals', error)
     }
   }
 
@@ -71,7 +71,7 @@ export function Home(){
       setPercentMeals((calcPercentMeals).toFixed(2))
 
     } catch (error) {
-      console.log(error)
+      console.log('erro inside percent meals', error)
     }
   }
 
@@ -82,15 +82,10 @@ export function Home(){
 
   useFocusEffect(useCallback(() => {
     fetchMeals();
-  }, [meals]));
-
-  useFocusEffect(useCallback(() => {
     insideMealPercent();
-  }, [meals]));
-
-  useFocusEffect(useCallback(() => {
     parcentInDietVallue();
   }, [meals]));
+
 
   return(
     <Container>
